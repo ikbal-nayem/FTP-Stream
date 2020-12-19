@@ -1,0 +1,20 @@
+.img-card {
+	position: relative;
+}
+.img-card:hover {
+	box-shadow: .3px .5px 20px #000000;
+	cursor: pointer; 
+}
+.img-text {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	background: linear-gradient(#046e6c00, #046e6ca6);
+	color: white;
+	padding: 5px;
+	width: 100%;
+	height: auto;
+}
+.img-text h6 {
+	margin: 0px;
+}
