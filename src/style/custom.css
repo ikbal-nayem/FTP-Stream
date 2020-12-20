@@ -1,5 +1,8 @@
-.app-wrapper{
+.app-wrapper {
 	margin-top: 5rem;
 	margin-left: 1rem;
 	margin-right: 1rem;
+}
+.tab:hover {
+	cursor: pointer !important;
 }

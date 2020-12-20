@@ -85,11 +85,11 @@ function LoginDialog(props) {
         content={
           <Fragment>
             <TextField
-              variant="outlined"
               margin="normal"
               error={status === "invalidEmail"}
               required
               fullWidth
+              size="small"
               label="Email Address"
               inputRef={loginEmail}
               autoFocus
@@ -107,10 +107,10 @@ function LoginDialog(props) {
               FormHelperTextProps={{ error: true }}
             />
             <VisibilityPasswordTextField
-              variant="outlined"
               margin="normal"
               required
               fullWidth
+              size="small"
               error={status === "invalidPassword"}
               label="Password"
               inputRef={loginPassword}

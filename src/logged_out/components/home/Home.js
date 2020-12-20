@@ -1,15 +1,9 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import NewSection from "./NewSection";
 import TopSection from "./TopSection";
 
 
-const Home = (props)=>{
-  const { selectHome } = props;
-
-  useEffect(() => {
-    selectHome();
-  }, [selectHome]);
+const Home = React.memo(()=>{
 
   return (
     <div className="app-wrapper">
@@ -17,10 +11,6 @@ const Home = (props)=>{
       <TopSection />
     </div>
   );
-}
-
-Home.propTypes = {
-  selectHome: PropTypes.func.isRequired
-};
+})
 
 export default Home;

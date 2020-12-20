@@ -115,7 +115,7 @@ function Footer(props) {
   return (
     <footer className="lg-p-top">
       <WaveBorder
-        upperColor="#FFFFFF"
+        upperColor={theme.palette.primary}
         lowerColor={theme.palette.common.darkBlack}
         animationNegativeDelay={4}
       />

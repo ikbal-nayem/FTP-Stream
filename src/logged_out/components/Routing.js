@@ -1,45 +1,17 @@
 import React, { memo } from "react";
-import PropTypes from "prop-types";
-import { Switch } from "react-router-dom";
-import PropsRoute from "../../shared/components/PropsRoute";
+import { withRouter, Route, Switch } from "react-router-dom";
 import Home from "./home/Home";
-import Blog from "./blog/Blog";
-import BlogPost from "./blog/BlogPost";
+import PageNotFound from '../../shared/components/404';
 
-function Routing(props) {
-  const { blogPosts, selectBlog, selectHome } = props;
+const Routing = memo(()=>{
   return (
     <Switch>
-      {blogPosts.map((post) => (
-        <PropsRoute
-          path={post.url}
-          component={BlogPost}
-          title={post.title}
-          key={post.title}
-          src={post.src}
-          date={post.date}
-          content={post.content}
-          otherArticles={blogPosts.filter(
-            (blogPost) => blogPost.id !== post.id
-          )}
-        />
-      ))}
-      <PropsRoute
-        exact
-        path="/blog"
-        component={Blog}
-        selectBlog={selectBlog}
-        blogPosts={blogPosts}
-      />
-      <PropsRoute path="/" component={Home} selectHome={selectHome} />
+      <Route exact path="/movies" component={Home}/>
+      <Route exact path="/tv-series" component={Home}/>
+      <Route exact path="/" component={Home}/>
+      <Route component={PageNotFound}/>
     </Switch>
   );
-}
+})
 
-Routing.propTypes = {
-  blogposts: PropTypes.arrayOf(PropTypes.object),
-  selectHome: PropTypes.func.isRequired,
-  selectBlog: PropTypes.func.isRequired,
-};
-
-export default memo(Routing);
+export default withRouter(Routing);
