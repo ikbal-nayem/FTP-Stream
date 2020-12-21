@@ -89,6 +89,7 @@ function LoginDialog(props) {
               error={status === "invalidEmail"}
               required
               fullWidth
+              variant="outlined"
               size="small"
               label="Email Address"
               inputRef={loginEmail}
@@ -110,6 +111,7 @@ function LoginDialog(props) {
               margin="normal"
               required
               fullWidth
+              variant="outlined"
               size="small"
               error={status === "invalidPassword"}
               label="Password"

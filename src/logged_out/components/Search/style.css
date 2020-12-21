@@ -1,0 +1,12 @@
+.MuiInput-underline:after {
+	border-bottom: 0px;
+	content: none;
+}
+.MuiInput-underline:before {
+	border-bottom: 0px;
+	content: none;
+}
+.MuiInput-underline:hover{
+	border-bottom: 0px;
+	content: none;
+}

@@ -8,14 +8,14 @@ import {
   Button,
   Hidden,
   IconButton,
-  withStyles
+  withStyles,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
 import HowToRegIcon from "@material-ui/icons/HowToReg";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
-import BookIcon from "@material-ui/icons/Book";
 import NavigationDrawer from "../../../shared/components/NavigationDrawer";
+import SearchBox from '../Search';
+
 
 const styles = theme => ({
   appBar: {
@@ -39,6 +39,7 @@ const styles = theme => ({
   }
 });
 
+
 function NavBar(props) {
   const {
     classes,
@@ -49,6 +50,7 @@ function NavBar(props) {
     mobileDrawerOpen,
     selectedTab
   } = props;
+
   const menuItems = [
     {
       name: "Register",
@@ -61,6 +63,7 @@ function NavBar(props) {
       icon: <LockOpenIcon className="text-white" />
     }
   ];
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -83,7 +86,7 @@ function NavBar(props) {
               Stream
             </Typography>
           </div>
-          <div>
+          <div className="d-flex">
             <Hidden mdUp>
               <IconButton
                 className={classes.menuButton}
@@ -94,6 +97,9 @@ function NavBar(props) {
               </IconButton>
             </Hidden>
             <Hidden smDown>
+              
+              <SearchBox/>
+
               {menuItems.map(element => {
                 if (element.link) {
                   return (
