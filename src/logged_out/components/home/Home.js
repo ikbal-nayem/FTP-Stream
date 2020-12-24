@@ -1,6 +1,6 @@
 import React from "react";
 import NewSection from "./NewSection";
-import TopSection from "./TopSection";
+import PopularSection from "./PopularSection";
 
 
 const Home = React.memo(()=>{
@@ -8,7 +8,7 @@ const Home = React.memo(()=>{
   return (
     <div className="app-wrapper">
       <NewSection />
-      <TopSection />
+      <PopularSection />
     </div>
   );
 })

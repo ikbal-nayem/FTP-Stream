@@ -17,19 +17,21 @@ export default React.memo(()=>{
 				style={{width: 250, marginRight: 50}}
 				disableClearable
         options={top100Films.map((option) => option.title)}
+        renderOption={(option) => <span className="text-truncate">{option}</span>}
         renderInput={(params) => (
           <TextField
           	{...params}
+            id="search-box"
 					  placeholder="Search..."
 					  size="small"
 					  fullWidth
-					  className="px-2 bg-light rounded shadow"
+					  className="px-2 pt-1 bg-light rounded shadow"
 					  startAdornment={
 					    <InputAdornment className="p-0" position="start">
 					      <SearchRounded className="p-0" color="primary"/>
 					    </InputAdornment>
 					  }
-					  InputProps={{ ...params.InputProps, type: 'search' }}
+					  InputProps={{ ...params.InputProps, type: 'search'}}
 					/>
         )}
 			/>

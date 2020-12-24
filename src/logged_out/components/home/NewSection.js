@@ -3,18 +3,23 @@ import SwiperCore, { Navigation, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.min.css';
 import SeriesCard from '../card/SeriesCard';
-
-
+import MovieCard from '../card/MovieCard';
+import axios from '../../../shared/util';
 
 SwiperCore.use([Navigation, Autoplay]);
 
+
 const NewSection = React.memo((props)=>{
-  const [selected, setSelected] = React.useState(0)
   const preview = Math.floor(window.innerWidth/180)
+  const [selected, setSelected] = React.useState(0)
+  const [list_items, setListItems] = React.useState([])
 
   React.useEffect(()=>{
-    console.log(selected)
+    const url = selected === 0 ? '/tv/on_the_air' : '/movie/now_playing'
+    axios.get(url, {params:{page: 1}})
+      .then(resp => setListItems(resp.data.results))
   }, [selected])
+
 
   return (
     <Fragment>
@@ -37,7 +42,14 @@ const NewSection = React.memo((props)=>{
         }}
         navigation
       >
-        {[...Array(20).keys()].map(val => <SwiperSlide><SeriesCard/></SwiperSlide>)}
+        {list_items.map(item => (
+          <SwiperSlide key={item.id}>
+            {selected === 0 
+              ? <SeriesCard item={item} />
+              : <MovieCard item={item}/>
+            }
+          </SwiperSlide>
+        ))}
       </Swiper>
     </Fragment>
   );

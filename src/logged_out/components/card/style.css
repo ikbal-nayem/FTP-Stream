@@ -5,16 +5,34 @@
 	box-shadow: .3px .5px 20px #000000;
 	cursor: pointer; 
 }
-.img-text {
-	position: absolute;
-	bottom: 0px;
-	text-align: center;
-	background: linear-gradient(#046e6c00, #046e6ca6);
-	color: white;
-	padding: 5px;
+.img-body {
 	width: 100%;
 	height: auto;
 }
-.img-text h6 {
+.img-body h6 {
+	position: absolute;
+	bottom: 0px;
+	text-align: center;
+	background: linear-gradient(#00000000, #000000d9);
+	color: var(--bs-light);	
 	margin: 0px;
+	padding: 5px;
+	width: 100%;
+}
+.rating-box {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	background: transparent;
+	border-radius: 50%;
+	border: 2px solid var(--bs-success);
+	box-shadow: .3px .3px 5px var(--bs-success);
+	color: var(--bs-success);
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center
 }
