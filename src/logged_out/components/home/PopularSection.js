@@ -5,7 +5,7 @@ import axios from '../../../shared/util';
 
 
 
-const TopSection = (props)=>{
+const PopularSection = (props)=>{
   const [selected, setSelected] = React.useState(0)
   const [list_items, setListItems] = React.useState([])
 
@@ -43,4 +43,4 @@ const TopSection = (props)=>{
 }
 
 
-export default React.memo(TopSection);
+export default React.memo(PopularSection);

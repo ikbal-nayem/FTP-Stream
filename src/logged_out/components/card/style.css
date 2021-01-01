@@ -9,11 +9,11 @@
 	width: 100%;
 	height: auto;
 }
-.img-body h6 {
+.img-body h6, .img-body span {
 	position: absolute;
 	bottom: 0px;
 	text-align: center;
-	background: linear-gradient(#00000000, #000000d9);
+	background: linear-gradient(#00000000, #000000e9);
 	color: var(--bs-light);	
 	margin: 0px;
 	padding: 5px;
