@@ -3,8 +3,22 @@
 	-webkit-filter: blur(3px) brightness(50%);
 	width: 100%;
 }
-
 .detail-header .poster {
 	border-radius: 5px;
 	width: 100%;
+}
+
+
+.details-rating-box {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background-color: #000000a0;
+	box-shadow: .3px .3px 8px #000000a1;
+}
+.trailer-button {
+	margin-left: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

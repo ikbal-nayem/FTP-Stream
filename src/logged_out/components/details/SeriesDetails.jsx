@@ -1,4 +1,7 @@
 import React from 'react';
+import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 import axios from '../../../shared/util';
 import {image_base_url} from '../../../shared/util';
 import './style.css';
@@ -29,13 +32,32 @@ const SeriseDetail = ({match})=>{
 					</div>
 					<div className="col d-flex align-items-center">
 						<div>
-							<h3 className="font-weight-bold">{details.original_name} &nbsp; <i>({details.first_air_date && details.first_air_date.split('-')[0]})</i></h3>
-							<span>Rating</span><br/>
+							<div className="d-flex">
+								<h1 className="font-weight-bold">{details.name}</h1> &nbsp;
+								<i>({details.first_air_date && details.first_air_date.split('-')[0]})</i>
+							</div>
+							<div className="d-flex">
+								<div className="details-rating-box">
+									<CircularProgressbar
+										value={details.vote_average*10}
+										text={details.vote_average}
+										styles={{
+											path: {stroke: 'var(--bs-primary)'},
+											text: {fill: 'var(--bs-primary)', fontSize: 30}
+										}}
+									/>
+								</div>
+								<div className="trailer-button">
+									<PlayArrowRoundedIcon/> &nbsp; <span>Play Trailer</span>
+								</div>
+							</div>
 							<span>Gener</span><br/>
 							<span>Number of season : {details.number_of_seasons}</span><br/>
-							<span>People likes</span><br/>
 							<span>Actors</span><br/>
-							<p>{details.overview}</p>
+							<div className="my-3">
+								<h4 className="font-weight-bold">Overview</h4>
+								<p>{details.overview}</p>
+							</div>
 						</div>
 					</div>
 				</div>
