@@ -21,4 +21,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	transition: .5s;
+}
+.trailer-button:hover {
+	cursor: pointer;
+	color: var(--bs-danger);
+	transform: scale(1.05);
 }
