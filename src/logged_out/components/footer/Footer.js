@@ -113,7 +113,7 @@ const socialIcons = [
 function Footer(props) {
   const { classes, theme, width } = props;
   return (
-    <footer className="lg-p-top">
+    <footer className="">
       <WaveBorder
         upperColor={theme.palette.primary}
         lowerColor={theme.palette.common.darkBlack}
@@ -152,13 +152,6 @@ function Footer(props) {
             </Grid>
           </Hidden>
           <Grid item xs={12} md={6} lg={6}>
-            <Typography variant="h6" paragraph className="text-white">
-              About the Company
-            </Typography>
-            <Typography style={{ color: "#8f9296" }} paragraph>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-              euismod convallis velit, eu auctor lacus vehicula sit amet.
-            </Typography>
             <div className="d-flex">
               {socialIcons.map((socialIcon, index) => (
                 <div key={index} className="mx-1">

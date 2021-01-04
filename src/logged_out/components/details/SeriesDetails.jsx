@@ -17,7 +17,6 @@ const SeriseDetail = ({match})=>{
 			.finally(()=> setLoading(false))
 	}, [match.params])
 
-	console.log(details)
 
 	return(
 		<React.Fragment>
@@ -30,7 +29,10 @@ const SeriseDetail = ({match})=>{
 				/>
 				<HeaderComponent details={details}/>
 			</div>
-			<TVSComponent/>
+			<TVSComponent
+				id={details.id}
+				number_of_seasons={details.number_of_seasons}
+			/>
 		</React.Fragment>
 	)
 }

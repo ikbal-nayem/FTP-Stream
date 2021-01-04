@@ -1,8 +1,10 @@
 import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import SeasonDetails from './SeasonDetails';
+import axios from '../../../shared/util';
+
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -13,12 +15,11 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
+      className="w-100"
       {...other}
     >
       {value === index && (
-        <Box p={3}>
-          <Typography>{children}</Typography>
-        </Box>
+        <React.Fragment>{children}</React.Fragment>
       )}
     </div>
   );
@@ -27,12 +28,17 @@ function TabPanel(props) {
 
 
 
-export default React.memo(()=>{
+export default React.memo(({id, number_of_seasons})=>{
   const [value, setValue] = React.useState(0);
+  const [season, setSeason] = React.useState({})
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const handleChange = (event, newValue) => setValue(newValue);
+
+  React.useEffect(()=>{
+  	axios.get(`/tv/${id}/season/${value+1}`)
+  		.then(resp => setSeason(resp.data))
+  }, [id, value])
+
 
   return (
     <div className="d-flex px-md-3">
@@ -42,35 +48,17 @@ export default React.memo(()=>{
         onChange={handleChange}
         style={{borderRight: `2px solid #ffffff29`}}
       >
-        <Tab label="Item One" id={0} />
-        <Tab label="Item Two" id={1} />
-        <Tab label="Item Three" id={2} />
-        <Tab label="Item Four" id={3} />
-        <Tab label="Item Five" id={4} />
-        <Tab label="Item Six" id={5} />
-        <Tab label="Item Seven" id={6} />
+      	{[...Array(number_of_seasons)].map((val, i)=>(
+	        	<Tab key={val} label={`Season ${i+1}`} id={i} data-aos="zoom-in-up"/>
+      	))}
       </Tabs>
-      <TabPanel value={value} index={0}>
-        Item One
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        Item Four
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-        Item Five
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-        Item Six
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-        Item Seven
-      </TabPanel>
+
+      {[...Array(number_of_seasons)].map((val, i)=>(
+	        <TabPanel value={value} index={i}>
+		        <SeasonDetails season={season}/>
+		      </TabPanel>
+    	))}
+
     </div>
   );
 })

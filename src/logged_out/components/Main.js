@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 import DialogSelector from "./register_login/DialogSelector";
 import Routing from "./Routing";
 
-AOS.init({ once: true });
+AOS.init({ once: false, mirror: false });
 
 
 function Main() {

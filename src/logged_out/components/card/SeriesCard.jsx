@@ -17,7 +17,6 @@ const SeriesCard = React.memo(({item})=>{
                 width="100%"
                 src={`${image_base_url}/w185${item.poster_path}`}
                 alt="."
-                effect="blur"
               />
               <div className="img-body">
                 <div className="rating-box">{item.vote_average}</div>

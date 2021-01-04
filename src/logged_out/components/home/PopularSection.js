@@ -29,8 +29,8 @@ const PopularSection = (props)=>{
           Movies</span>
       </div>
       <div className="row">
-        {list_items.map((item, i) => (
-          <div className="col" data-aos="zoom-in-up" data-aos-delay={i*20}>
+        {list_items.map((item) => (
+          <div className="col">
             {selected === 0 
               ? <SeriesCard item={item} />
               : <MovieCard item={item}/>

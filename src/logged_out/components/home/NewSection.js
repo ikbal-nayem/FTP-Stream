@@ -42,7 +42,7 @@ const NewSection = React.memo((props)=>{
         }}
         navigation
       >
-        {list_items.map(item => (
+        {list_items.map((item, i) => (
           <SwiperSlide key={item.id}>
             {selected === 0 
               ? <SeriesCard item={item} />
