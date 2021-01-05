@@ -23,7 +23,7 @@ const NewSection = React.memo((props)=>{
 
   return (
     <Fragment>
-      <div className="d-flex">
+      <div className="d-flex mb-3">
         <h6 className="mx-3 text-white">New</h6>
         <span className={`tab mx-2 ${selected===0?'text-white border-bottom border-secondary':'text-muted'}`}
               onClick={()=>setSelected(0)}

@@ -9,11 +9,11 @@ import {image_base_url} from '../../../shared/util';
 const MovieCard = React.memo(({item})=>{
   return(
     item ?
-      <Link to={`movie/${item.id}`}>
-        <div className="p-2" style={{minWidth: '150px', maxWidth: '220px'}}>
+      <Link to={`/movie/${item.id}`}>
+        <div style={{minWidth: '140px', maxWidth: '200px'}}>
           <div className="card overflow-hidden">
-            <div className="card-image img-card">
-              <LazyLoadImage width="100%" src={`${image_base_url}/w185${item.poster_path}`} alt="." effect="blur" />
+            <div className="card-image img-card movie-card">
+              <LazyLoadImage width="100%" src={`${image_base_url}/w185${item.poster_path}`} alt="." effect="black-and-white" />
               <div className="img-body">
                 <div className="rating-box">{item.vote_average}</div>
                 <h6>{item.title} ({item.first_air_date ? item.first_air_date.split('-')[0] : item.release_date.split('-')[0]})</h6>
@@ -23,7 +23,7 @@ const MovieCard = React.memo(({item})=>{
         </div>
       </Link>
 
-    : <div className="p-2" style={{minWidth: '150px', maxWidth: '220px'}}>
+    : <div style={{minWidth: '140px', maxWidth: '200px'}}>
         <div className="card overflow-hidden">
           <div className="card-image img-card">
             <Skeleton variant="rect" width="100%" height='300px' animation="wave" />

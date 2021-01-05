@@ -7,7 +7,7 @@ import {image_base_url} from '../../../shared/util';
 
 const is_mobile = window.innerWidth < 400
 
-export default React.memo(({details})=>(
+export default React.memo(({details, movie})=>(
 	<React.Fragment>
 		<div className="card-img-overlay p-md-5 p-2">
 			<div className="row">
@@ -17,7 +17,7 @@ export default React.memo(({details})=>(
 							src={`${image_base_url}/${is_mobile?'w185':'w342'}${details.poster_path}`}
 						  alt="."
 						  className="poster"
-						  effect="blur"
+						  effect="black-and-white"
 						/>
 					</div>
 				</div>
@@ -25,8 +25,11 @@ export default React.memo(({details})=>(
 					<div>
 						<div className="mb-3">
 							<div className="d-flex">
-								<h1 className="font-weight-bold mb-0">{details.name}</h1> &emsp;
-								<i className="h5">({details.first_air_date && details.first_air_date.split('-')[0]}-{details.last_air_date && details.last_air_date.split('-')[0]})</i>
+								<h1 className="font-weight-bold mb-0">{movie ? details.title : details.name}</h1> &emsp;
+								{movie ?
+									<i className="h5">({details.release_date && details.release_date.split('-')[0]})</i> :
+									<i className="h5">({details.first_air_date && details.first_air_date.split('-')[0]}-{details.last_air_date && details.last_air_date.split('-')[0]})</i>
+								}
 							</div>
 							<div className="d-flex">
 								<span>
@@ -52,7 +55,10 @@ export default React.memo(({details})=>(
 								<PlayArrowRoundedIcon/> &nbsp; <span>Play Trailer</span>
 							</div>
 						</div>
-						<p>{details.number_of_seasons} Seasons and {details.number_of_episodes} Episodes</p>
+						{movie ?
+							<p>{details.tagline}</p> :
+							<p>{details.number_of_seasons} Seasons and {details.number_of_episodes} Episodes</p>
+						}
 						<div className="my-3">
 							<h4 className="font-weight-bold">Overview</h4>
 							<p>{details.overview}</p>

@@ -49,7 +49,7 @@ export default React.memo(({id, number_of_seasons})=>{
         style={{borderRight: `2px solid #ffffff29`}}
       >
       	{[...Array(number_of_seasons)].map((val, i)=>(
-	        	<Tab key={val} label={`Season ${i+1}`} id={i} data-aos="zoom-in-up"/>
+	        	<Tab key={val} label={`Season ${i+1}`} id={i}/>
       	))}
       </Tabs>
 

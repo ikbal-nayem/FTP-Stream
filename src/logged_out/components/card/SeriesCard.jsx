@@ -10,13 +10,14 @@ const SeriesCard = React.memo(({item})=>{
   return(
     item ?
       <Link to={`/tv-series/${item.id}`}>
-        <div className="p-2" style={{minWidth: '150px', maxWidth: '220px'}}>
+        <div style={{minWidth: '140px', maxWidth: '200px'}}>
           <div className="card overflow-hidden">
-            <div className="card-image img-card">
+            <div className="card-image img-card series-card">
               <LazyLoadImage
                 width="100%"
                 src={`${image_base_url}/w185${item.poster_path}`}
                 alt="."
+                effect="black-and-white"
               />
               <div className="img-body">
                 <div className="rating-box">{item.vote_average}</div>
@@ -27,7 +28,7 @@ const SeriesCard = React.memo(({item})=>{
         </div>
       </Link>
 
-    : <div className="p-2" style={{minWidth: '150px', maxWidth: '220px'}}>
+    : <div style={{minWidth: '140px', maxWidth: '200px'}}>
         <div className="card overflow-hidden">
           <div className="card-image img-card">
             <Skeleton variant="rect" width="100%" height={228} animation="wave" />

@@ -1,9 +1,11 @@
 .img-card {
 	position: relative;
+	transition: .5s cubic-bezier(0.48, 0.58, 0.92, 0.62);
 }
 .img-card:hover {
 	box-shadow: .3px .5px 20px #000000;
 	cursor: pointer; 
+	transform: scale(1.05);
 }
 .img-body {
 	width: 100%;
@@ -35,4 +37,12 @@
 	display: flex;
 	align-items: center;
 	justify-content: center
+}
+.episode-card {
+	transition: .5s ease-in-out;
+}
+
+.episode-card:hover {
+	transform: scale(1.05);
+	cursor: pointer;
 }
