@@ -54,7 +54,7 @@ export default React.memo(({id, number_of_seasons})=>{
       </Tabs>
 
       {[...Array(number_of_seasons)].map((val, i)=>(
-	        <TabPanel value={value} index={i}>
+	        <TabPanel key={val} value={value} index={i}>
 		        <SeasonDetails season={season}/>
 		      </TabPanel>
     	))}

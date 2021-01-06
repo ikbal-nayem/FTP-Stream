@@ -41,7 +41,7 @@ const PopularSection = (props)=>{
         </div>
         <div className="row">
           {list_items.map((item) => (
-            <div className="col">
+            <div key={item.id} className="col">
               {selected === 0 
                 ? <SeriesCard item={item}/>
                 : <MovieCard item={item}/>
