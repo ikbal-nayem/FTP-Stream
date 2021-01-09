@@ -28,3 +28,6 @@
 	color: var(--bs-danger);
 	transform: scale(1.05);
 }
+.MuiDialog-paper{
+	overflow-y: hidden;
+}

@@ -23,9 +23,9 @@ const SeriseDetail = ({match})=>{
 			<div className="card bg-dark text-light mt-5 detail-header">
 				<LazyLoadImage
 					src={`${image_base_url}/w1920_and_h800_multi_faces${details.backdrop_path}`}
-				  alt="."
-				  className="backdrop"
-				  effect="blur"
+					alt=""
+					className="backdrop"
+					effect="black-and-white"
 				/>
 				<HeaderComponent details={details}/>
 			</div>

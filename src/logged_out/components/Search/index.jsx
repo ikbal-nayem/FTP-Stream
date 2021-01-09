@@ -1,11 +1,9 @@
 import React from 'react';
 import {
-	InputAdornment,
 	TextField,
   ListSubheader
 } from "@material-ui/core";
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import {SearchRounded} from "@material-ui/icons"
 import './style.css';
 import RenderItem from './RenderItem';
 import axios from '../../../shared/util';
@@ -45,11 +43,6 @@ export default React.memo(()=>{
 					  fullWidth
             onChange={e => setQuery(e.target.value)}
 					  className="px-2 pt-1 bg-light rounded shadow"
-					  startAdornment={
-					    <InputAdornment className="p-0" position="start">
-					      <SearchRounded className="p-0" color="primary"/>
-					    </InputAdornment>
-					  }
 					  InputProps={{ ...params.InputProps, type: 'search'}}
 					/>
         )}
