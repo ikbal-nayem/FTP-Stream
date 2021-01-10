@@ -18,7 +18,7 @@ const SimilarSection = ({match})=>{
       <h4>Similar Movies</h4>
       <div className="row">
         {list_items.map((item) => (
-          <div key={item.id} className="col">
+          <div key={item.id} className="col animate__animated animate__zoomIn">
             <MovieCard item={item}/>
           </div>
         ))}

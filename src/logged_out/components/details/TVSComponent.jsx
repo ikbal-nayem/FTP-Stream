@@ -15,7 +15,7 @@ function TabPanel(props) {
       hidden={value !== index}
       id={`vertical-tabpanel-${index}`}
       aria-labelledby={`vertical-tab-${index}`}
-      className="w-100"
+      className="w-100 animate__animated animate__zoomIn"
       {...other}
     >
       {value === index && (
@@ -35,8 +35,9 @@ export default React.memo(({id, number_of_seasons})=>{
   const handleChange = (event, newValue) => setValue(newValue);
 
   React.useEffect(()=>{
-  	axios.get(`/tv/${id}/season/${value+1}`)
-  		.then(resp => setSeason(resp.data))
+    id &&
+    	axios.get(`/tv/${id}/season/${value+1}`)
+    		.then(resp => setSeason(resp.data))
   }, [id, value])
 
 

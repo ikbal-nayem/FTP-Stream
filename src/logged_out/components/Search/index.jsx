@@ -15,8 +15,9 @@ export default React.memo(()=>{
   const [result, setResult] = React.useState([])
 
   React.useEffect(()=>{
-    axios.get(`/search/multi?query=${query}`)
-      .then(resp => setResult(resp.data.results))
+    query &&
+      axios.get(`/search/multi?query=${query}`)
+        .then(resp => setResult(resp.data.results))
   }, [query, setResult])
 
 

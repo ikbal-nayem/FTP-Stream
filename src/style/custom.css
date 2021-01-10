@@ -1,3 +1,15 @@
+::-webkit-scrollbar {
+ 	width: 5px;
+}
+::-webkit-scrollbar-track {
+ 	background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: #d6dee1;
+	border-radius: 5px;
+	z-index: 99;
+}
+
 .app-wrapper {
 	margin-top: 5rem;
 	margin-left: 1rem;

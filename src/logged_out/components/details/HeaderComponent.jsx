@@ -16,12 +16,12 @@ const VideoModal = React.memo(({trailer_open, handleClose, video_key})=>{
 	return(
 		<Dialog
 			open={trailer_open}
-      onClose={handleClose}
-      closeAfterTransition
-      BackdropComponent={Backdrop}
-      scroll='paper'
-      fullWidth={true}
-      maxWidth="md"
+			onClose={handleClose}
+			closeAfterTransition
+			BackdropComponent={Backdrop}
+			scroll='paper'
+			fullWidth={true}
+			maxWidth="md"
 		>
 			<ReactPlayer width='100%' url={`https://www.youtube.com/watch?v=${video_key}`} />
 		</Dialog>
@@ -34,8 +34,9 @@ export default React.memo(({details, movie})=>{
 	const [video_key, setVideoKey] = React.useState('')
 
 	React.useEffect(()=>{
-		axios.get(`/movie/${details.id}/videos`)
-			.then(resp => setVideoKey(resp.data.results[0].key))
+		details.id && 
+			axios.get(`/movie/${details.id}/videos`)
+				.then(resp => setVideoKey(resp.data.results[0].key))
 	}, [details.id])
 
 	const handleClose = ()=> setTrailerOpen(false);
@@ -84,7 +85,7 @@ export default React.memo(({details, movie})=>{
 										}}
 									/>
 								</div>
-								<div className="trailer-button" onClick={()=>setTrailerOpen(true)}>
+								<div className="trailer-button" onClick={()=>video_key && setTrailerOpen(true)}>
 									<PlayArrowRoundedIcon/> &nbsp; <span>Play Trailer</span>
 								</div>
 								<VideoModal trailer_open={trailer_open} handleClose={handleClose} video_key={video_key} />

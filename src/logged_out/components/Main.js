@@ -1,12 +1,8 @@
 import React, { memo, useState, useCallback } from "react";
-import AOS from "aos/dist/aos";
 import NavBar from "./navigation/NavBar";
 import Footer from "./footer/Footer";
-import "aos/dist/aos.css";
 import DialogSelector from "./register_login/DialogSelector";
 import Routing from "./Routing";
-
-AOS.init({ once: false, mirror: false });
 
 
 function Main() {
