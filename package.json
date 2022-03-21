@@ -19,6 +19,7 @@
     "emoji-mart": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.14.0",
+    "react-animation": "^1.2.2",
     "react-circular-progressbar": "^2.0.3",
     "react-cropper": "^2.1.4",
     "react-dom": "^16.14.0",
